@@ -1,0 +1,28 @@
+-- Создание базы данных
+CREATE DATABASE firstbase;
+USE firstbase;
+
+-- Создание таблицы
+CREATE TABLE employees (
+  id INT PRIMARY KEY,
+  name VARCHAR(100),
+  department_id INT,
+  salary DECIMAL(10, 2)
+);
+
+-- Загрузка информации в таблицу
+INSERT INTO employees (id, name, department_id, salary)
+VALUES (1, 'John Doe', 90, 6000),
+       (2, 'Jane Smith', 90, 5500),
+       (3, 'Bob Johnson', 80, 4500);
+
+-- Все сотрудники с id 90
+SELECT * FROM employees WHERE department_id = 90;
+-- Все сотрудники с зп выше 5000
+SELECT * FROM employees WHERE salary > 5000;
+-- Все сотрудники с фамилией на букву L
+SELECT * FROM employees WHERE name LIKE 'L%';
+--Из таблицы departments найти все департаменты, у которых location_id 1700:
+SELECT * FROM departments WHERE location_id = 1700;
+-- Из таблицы locations найти все города с country_id US:
+SELECT * FROM locations WHERE country_id = 'US';
